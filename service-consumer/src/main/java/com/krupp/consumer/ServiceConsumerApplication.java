@@ -20,6 +20,7 @@ public class ServiceConsumerApplication {
         SpringApplication.run(ServiceConsumerApplication.class, args);
     }
 
+    //给 RestTemplate 实例添加 @LoadBalanced 注解，开启 @LoadBalanced 与 Ribbon 的集成@LoadBalanced表明这个restRemplate开启负载均衡的功能。
     @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
@@ -32,7 +33,9 @@ public class ServiceConsumerApplication {
         private final RestTemplate restTemplate;
 
         @Autowired
-        public TestController(RestTemplate restTemplate) {this.restTemplate = restTemplate;}
+        public TestController(RestTemplate restTemplate) {
+            this.restTemplate = restTemplate;
+        }
 
         @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
         public String echo(@PathVariable String str) {

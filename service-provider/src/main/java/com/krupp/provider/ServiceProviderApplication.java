@@ -20,7 +20,10 @@ public class ServiceProviderApplication {
     class EchoController {
         @RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
         public String echo(@PathVariable String string) {
-            return "Hello Nacos Discovery " + string;
+            System.out.println("provider被调用了");
+            int i = Integer.parseInt(string);
+            i++;
+            return "Hello Nacos Discovery " + i;
         }
     }
 

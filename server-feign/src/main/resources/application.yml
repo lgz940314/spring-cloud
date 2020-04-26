@@ -1,0 +1,9 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: server-feign
+  cloud:
+    nacos:
+      server-addr: localhost:8848
